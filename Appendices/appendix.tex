@@ -1,0 +1,61 @@
+% From https://developerinsider.co/c-programming-language-cheat-sheet/ - 2019-03-22
+
+%\documentclass[11pt]{book}
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}  % 8-bit encoding, helps hyphenation of accented characters - https://tex.stackexchange.com/a/677/42066
+%\usepackage[a4paper, twoside, top=2.0cm, left=3.0cm, bottom=2.0cm, right=2.0cm]{geometry}
+\usepackage[a4paper, twoside, top=2.0cm, left=2.0cm, bottom=2.0cm, right=1.5cm]{geometry}
+
+\usepackage[english]{babel}
+
+\usepackage{parskip}  % Replace paragraph indentations with white lines
+
+% Use the appendix package for nicer appendices:
+\usepackage[toc,page]{appendix}
+
+% \usepackage[numbib,numindex]{tocbibind}  % Add ToC, List of Figures/Tables/Code listings, Bibliography and Index to ToC
+\usepackage[]{tocbibind}  % Add ToC, List of Figures/Tables/Code listings, Bibliography and Index to ToC
+
+
+
+
+
+
+% Data for title page:
+\title{A simple \LaTeX\ example using appendices}
+\author{Marc van der Sluys}
+
+\begin{document}
+
+
+
+\maketitle
+
+\tableofcontents
+%\pagebreak
+
+
+\section{Introduction}
+
+This document shows simple use of appendices, using the \texttt{appendix} package.  This is still a normal section.
+
+
+
+\begin{appendices}  %  iso \appendix
+  \section{This is the first appendix}
+  \label{app:firstApp}
+  
+  \subsection*{With a subsection}
+  
+  The appendices look like simple sections\ldots
+  
+  
+  % Second appendix:
+  \section{This is the second appendix}
+  Here's a reference to Appendix~\ref{app:firstApp}.
+  
+\end{appendices}
+
+
+\end{document}
