@@ -1,0 +1,62 @@
+% From https://developerinsider.co/c-programming-language-cheat-sheet/ - 2019-03-22
+
+%\documentclass[11pt]{book}
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}  % 8-bit encoding, helps hyphenation of accented characters - https://tex.stackexchange.com/a/677/42066
+%\usepackage[a4paper, twoside, top=2.0cm, left=3.0cm, bottom=2.0cm, right=2.0cm]{geometry}
+\usepackage[a4paper, twoside, top=2.0cm, left=2.0cm, bottom=2.0cm, right=1.5cm]{geometry}
+
+\usepackage[english]{babel}
+
+\usepackage{parskip}  % Replace paragraph indentations with white lines
+
+
+
+% Citations:
+\usepackage[square]{natbib}  
+\bibliographystyle{MvdS_number_url}  % Use [1], print url = field  (plain doesn't print urls)
+
+% \usepackage[numbib,numindex]{tocbibind}  % Add ToC, List of Figures/Tables/Code listings, Bibliography and Index to ToC
+\usepackage[]{tocbibind}  % Add ToC, List of Figures/Tables/Code listings, Bibliography and Index to ToC
+
+
+
+
+
+
+% Data for title page:
+\title{A simple BibTeX example}
+\author{Marc van der Sluys}
+
+\begin{document}
+
+
+
+\maketitle
+
+\tableofcontents
+%\pagebreak
+
+
+\section{Introduction}
+
+This document is intended to show my favourite use of BibTeX in \LaTeX\ (depending on the target) with a simple example.
+An example of a citation is the \emph{C Programming Language Cheat Sheet} \cite{Choudhary}.  Also, I use the gcc
+C compiler \cite{gcc} a lot, since it is freely available for everybody.
+
+This is a citation to a real paper \cite{leung1980scheduling}.  And this is how I cite Wikipedia \cite{wiki:Cron}.
+
+Note that:
+\begin{itemize}
+\item I use a BibTeX style (*.bst) that I hacked together from number.bst, but where I made sure urls can be
+  used.  The original was by Patrick W.\ Daly, but I can't seem to find the original and hence what exactly it
+  is I changed\ldots
+\item I can use more than one BibTeX file (*.bib)
+\item Only the entries from my BibTeX files that are \emph{actually cited} are listed in the bibliography.
+\end{itemize}
+
+
+\bibliography{myReferences,otherReferences}
+
+\end{document}
