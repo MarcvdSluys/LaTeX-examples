@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}  % 8-bit encoding, helps hyphenation of accented characters - https://tex.stackexchange.com/a/677/42066
+%\usepackage[a4paper, twoside, top=2.0cm, left=3.0cm, bottom=2.0cm, right=2.0cm]{geometry}
+\usepackage[a4paper, twoside, top=2.0cm, left=2.0cm, bottom=2.0cm, right=1.5cm]{geometry}
+\usepackage[english]{babel}
+
+
+\usepackage{listings}      % Code listings
+\usepackage[section, above, below]{placeins}  % \FloatBarrier - flush floats before \section by default (above/below: unless on same page)
+\usepackage{amsmath}  % Needed for \numberwithin
+\usepackage[]{tocbibind}  % Add ToC, List of Figures/Tables/Code listings, Bibliography and Index to ToC
+
+% Use colours in Code listings:
+\usepackage{color}
+\definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
+\definecolor{darkgreen}{rgb}{0.0,0.6,0.0}
+
+
+
+\begin{document}
+
+% Set up code listing style:
+\lstset{
+  language=C,
+  % Fonts:
+  basicstyle=\ttfamily\footnotesize,
+  %keywordstyle=\ttfamily,
+  %identifierstyle=,
+  %commentstyle=\ttfamily\scriptsize,
+  commentstyle=\ttfamily\itshape,  % Italic
+  stringstyle=\ttfamily,
+  identifierstyle=\ttbf,           % Bold typewriter type
+  keywordstyle=\ttbf,              % Bold tt
+  % Colour:
+  keywordstyle=\ttfamily\color{red},
+  identifierstyle=\color{blue},
+  commentstyle=\scriptsize\ttfamily\color{brown},
+  stringstyle=\ttfamily\color{darkgreen},
+  % Spaces:
+  showstringspaces=false,
+  breaklines=true,
+  breakatwhitespace=true,
+  % Line numbering:
+  numbers=left,
+  numberstyle=\tiny,
+  stepnumber=1, 
+  numbersep=5pt,
+  % Frames:
+  frame=single,
+  frameround=tttt,
+  backgroundcolor=\color{lightgrey},
+  morekeywords={pthread_create},
+}
+
+% \renewcommand{\thelstlisting}{\thechapter.\arabic{lstlisting}}  % This is the default?
+\numberwithin{lstlisting}{section}  % AMSmath: number code listings per section
+%\numberwithin{lstlisting}{chapter}  % AMSmath: number code listings per chapter
+
+
+% Create a table of contents:
+\tableofcontents
+\pagebreak
+
+% Create a list of code listings:
+\setcounter{tocdepth}{2}  % For code listings
+\renewcommand{\lstlistlistingname}{Code listings}  % Name in chapter title (default: Listings)
+\renewcommand{\lstlistingname}{Code listing}       % Name in Listing header (default: Listing)
+%\addcontentsline{toc}{chapter}{\lstlistlistingname}  % Not needed when using tocbibind
+\lstlistoflistings
+%\fancyhead[RE,LO]{\slshape Listings}  % Custom fancy header for unnumbered chapter Listings
+\pagebreak
+
+
+\section{Introduction to C}
+\subsection{A hello-world program}
+\label{sec:helloWorld}
+
+Here is some normal text.  A hello-world program can be found in Code listing~\ref{code:hello}.
+
+\FloatBarrier  % Flush all floats to try not to interrupt the source-code listing
+\lstinputlisting[
+caption={hello.c: A hello-world program in C.},
+label=code:hello]
+{hello.c}
+
+\end{document}
