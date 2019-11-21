@@ -1,6 +1,5 @@
-% From https://developerinsider.co/c-programming-language-cheat-sheet/ - 2019-03-22
+% LaTeX template for MSES schenario modelling
 
-%\documentclass[11pt]{book}
 \documentclass[11pt]{article}
 
 \usepackage[T1]{fontenc}  % 8-bit encoding, helps hyphenation of accented characters - https://tex.stackexchange.com/a/677/42066
@@ -9,6 +8,7 @@
 
 \usepackage[english]{babel}
 
+\usepackage{pgf}      % Include graphics
 \usepackage{parskip}  % Replace paragraph indentations with white lines
 
 % Use the appendix package for nicer appendices:
@@ -23,7 +23,7 @@
 
 
 % Data for title page:
-\title{A simple \LaTeX\ example using appendices}
+\title{\LaTeX\ template for MSES scenario modelling}
 \author{Marc van der Sluys}
 
 \begin{document}
@@ -37,22 +37,76 @@
 
 
 \section{Introduction}
+\label{sec:intro}
 
-This document shows simple use of appendices, using the \texttt{appendix} package.  This is still a normal section.
+This document is an example \LaTeX\ document showing how to use tables, figures and appendices, as well as
+providing example sections and references.  The strategies and scenarios are described in
+Section~\ref{sec:scenarios}, the outcomes of the models in Sect.\,\ref{sec:results} and we discuss these
+outcomes in Sect.\,\ref{sec:conclusions}.
 
+
+\section{Strategies and scenarios}
+\label{sec:scenarios}
+
+Describe your two strategies in this section.  Which major variables have you chosen in the
+ETM?  Why?  Which values do you use for them?
+
+Describe your four scenarios.  If you use a table, put a tabular environment inside a (floating) table
+environment, like the example in Table~\ref{tab:example}.
+
+\begin{table}
+  \centering
+  \begin{tabular}{llll}
+    \textbf{Scen.} & \textbf{Focus} & \textbf{Global/local} & $\bf \Delta T$ ($^\circ$C) \\
+    \textbf{A1}    &  Materialistic & globalisation         & $\sim 1.4 - 6.4$ \\
+    \textbf{A2}    &  Materialistic & regionalisation       & $\sim 2.0 - 5.4$ \\
+    \textbf{B1}    &  Environmental & globalisation         & $\sim 1.1 - 2.9$ \\
+    \textbf{B2}    &  Environment   & regionalisation       & $\sim 1.4 - 3.8$ \\
+  \end{tabular}
+  \caption{An example table.  Note that the label is in the caption!
+    \label{tab:example}
+  }
+\end{table}
+
+
+\section{Results}
+\label{sec:results}
+
+What are the (most important) results of your scenarios in the target year?
+How do the chosen variables affect the result for each scenario?  Compare them to each other and the
+base model. How much CO$_2$ emission was prevented? What are the costs per household?  Quantify your
+outcomes and support your claims with arguments.  You can see some example results in Figure~\ref{fig:SRES}.
+More details can be found in Appendix~\ref{app:firstApp}.
+
+\begin{figure}
+  \centering
+  \pgfimage[interpolate=true,width=0.5\textwidth]{Figures/SRES_scenarios}
+  \caption{Example Figure.  Note that the label is in the caption!
+    \label{fig:SRES}
+  }
+\end{figure}
+
+
+\section{Summary, conclusions and discussion}
+\label{sec:conclusions}
+
+Explain in which scenario(s) the energy transition can take place relatively painlessly, and in which
+scenario(s) this is more difficult. Are the consequences acceptable, realistic, possible, affordable, \ldots?
+Which scenario do you advice? Why?  How close does it get to the 2030 goals?
 
 
 \begin{appendices}  %  iso \appendix
-  \section{This is the first appendix}
+  \section{First appendix}
   \label{app:firstApp}
   
   \subsection*{With a subsection}
   
-  The appendices look like simple sections\ldots
+  The appendices look like simple sections\ldots\
+  They offer room to many tables and figures.
   
   
   % Second appendix:
-  \section{This is the second appendix}
+  \section{Second appendix}
   Here's a reference to Appendix~\ref{app:firstApp}.
   
 \end{appendices}
