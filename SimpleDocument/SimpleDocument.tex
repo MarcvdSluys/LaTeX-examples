@@ -1,9 +1,8 @@
 % Use the article class and an 11pt letter:
 \documentclass[11pt]{article}
 
-% Use A4 paper and set margins.  Comment this line out (prepend
-% a %) if the geometry package is missing on your system:
-\usepackage[a4paper, top=2.5cm, left=2.5cm, bottom=2.5cm, right=2.5cm]{geometry}
+% Uncomment the line below to use A4 paper and set margins:
+% \usepackage[a4paper, top=2.5cm, left=2.5cm, bottom=2.5cm, right=2.5cm]{geometry}
 
 % \usepackage{parskip}  % Comment this in in order to delineate paragraphs with an empty line, rather than an indentation
 
@@ -39,6 +38,14 @@ In order to generate the PDF file from the \LaTeX\ source file \texttt{SimpleDoc
 MikTeX \texttt{miktex.org} and TexStudio \texttt{texstudio.org} or the website \texttt{www.overleaf.com}.
 
 \section{Style}
+
+\subsection{Paper size and margins}
+
+Depending on your system settings, \LaTeX\ may produce a PDF with Letter paper format and wide margins by
+default.  Uncomment the line \linebreak
+\texttt{\textbackslash{}usepackage[\ldots]\{geometry\}} \linebreak
+near the top of the file to set it to proper values and recompile.
+
 
 \subsection{Paragraphs}
 
