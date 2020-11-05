@@ -1,0 +1,82 @@
+% Use the article class and an 11pt letter:
+\documentclass[11pt]{article}
+
+% Use A4 paper and set margins.  Comment this line out (prepend
+% a %) if the geometry package is missing on your system:
+\usepackage[a4paper, top=2.5cm, left=2.5cm, bottom=2.5cm, right=2.5cm]{geometry}
+
+% \usepackage{parskip}  % Comment this in in order to delineate paragraphs with an empty line, rather than an indentation
+
+
+% Setup the title page:
+\title{A very simple document}
+\author{Marc van der Sluys\\
+HAN University of Applied Sciences\\
+Arnhem, The Netherlands}
+
+
+% Above is the preamble, below the actual document.
+\begin{document}
+
+% Create a title:
+\maketitle
+
+% Create a ToC:
+\tableofcontents
+
+% Continue on a new page:
+% \newpage
+
+% A section:
+\section{Introduction}
+
+This is one of the smallest \LaTeX\ documents ever, to see whether you can compile this to a PDF.  
+
+\section{Compiling your document}
+
+In order to generate the PDF file from the \LaTeX\ source file \texttt{SimpleDocument.tex}, you need to
+\emph{compile} the source.  People typically use TexWorks (\texttt{tug.org/texworks)}, the combination of
+MikTeX \texttt{miktex.org} and TexStudio \texttt{texstudio.org} or the website \texttt{www.overleaf.com}.
+
+\section{Style}
+
+\subsection{Paragraphs}
+
+Here is some text that is hopefully long enough to create a small paragraph.  If the text is \emph{not} long
+enough, I'll add more.
+If it is \emph{still} not long enough, I'll add even more.
+If it is \emph{still} not long enough, I'll add even more.
+If it is \textbf{still} not long enough, I'll add even more.
+If it is \emph{still} not long enough, I'll add even more.
+If it is \emph{still} not long enough, I'll add even more.
+If it is \emph{still} not long enough, I'll add even more.
+
+Note that hard returns in the code do nothing.  However, an empty line creates a new paragraph.  Note that the
+default paragraph style uses indentation.  If you use the \texttt{parskip} package in the preamble
+(``header'') of the source file, it will turn into an empty line.  You may need to have to install the package
+first.
+
+
+\subsection{Equations}
+
+Creating an equation is easy, as illustrated by Equation~\ref{eq:example}.
+\begin{equation}
+  -e^{i \pi} = 1
+  \label{eq:example}
+\end{equation}
+
+\subsection{Lists}
+
+There are at least two types of lists:
+\begin{enumerate}
+\item enumerate
+\item itemize
+\end{enumerate}
+
+There are several types of lists:
+\begin{itemize}
+\item enumerate
+\item itemize
+\end{itemize}
+
+\end{document}
