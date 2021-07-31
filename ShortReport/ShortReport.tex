@@ -1,11 +1,11 @@
-% LaTeX template for a short report (written for MSES scenario modelling)
+% LaTeX template for a short report
 
 \documentclass[11pt]{article}  % Use article class with 11pt letter
 
 \usepackage[T1]{fontenc}  % 8-bit encoding, helps hyphenation of accented characters -
                           % https://tex.stackexchange.com/a/677/42066
 
-% Use A4 paper and set margins:
+% Use A4 paper and set narrow margins to save paper:
 %\usepackage[a4paper, twoside, top=2.0cm, left=3.0cm, bottom=2.0cm, right=2.0cm]{geometry}
 \usepackage[a4paper, twoside, top=2.0cm, left=2.0cm, bottom=2.0cm, right=1.5cm]{geometry}
 
@@ -20,16 +20,21 @@
 % Use the appendix package for nicer appendices:
 \usepackage[toc,page]{appendix}
 
+% Citations:
+\usepackage[numbers, square]{natbib}  % Use numbered citations with square brackets
+\bibliographystyle{MvdS_number_url}  % Use [1], print url = field  (plain doesn't print urls)
+
 % \usepackage[numbib,numindex]{tocbibind}  % Add ToC, List of Figures/Tables/Code listings, Bibliography and Index to ToC
 \usepackage[]{tocbibind}  % Add ToC, List of Figures/Tables/Code listings, Bibliography and Index to ToC
 
+\DeclareRobustCommand{\BibTeX}{{\normalfont\scshape Bib\kern-0.08em \TeX}}
 
 
 
 
 
 % Data for title page:
-\title{\LaTeX\ template for a short report (for MSES scenario modelling)}
+\title{\LaTeX\ template for a short report}
 \author{Marc van der Sluys}
 
 \begin{document}
@@ -102,6 +107,33 @@ scenario(s) this is more difficult. Are the consequences acceptable, realistic, 
 Which scenario do you advice? Why?  How close does it get to the 2030 goals?
 
 
+\section{References}
+
+This section is intended to show my favourite use of \BibTeX\ in \LaTeX\ (depending on the target) with a
+simple example.  An example of a citation is the \emph{C Programming Language Cheat Sheet} \cite{Choudhary}.
+Also, I use the gcc C compiler \cite{gcc} a lot, since it is freely available for everybody.
+
+This is a citation to a real paper \cite{leung1980scheduling}.  And this is how I cite Wikipedia
+\cite{wiki:Cron}.
+
+Note that:
+\begin{itemize}
+\item I use a \BibTeX\ style (*.bst) that I hacked together from number.bst, but where I made sure URLs can be
+  used.  The original was by Patrick W.\ Daly, but I can't seem to find the original and hence what exactly it
+  is I changed\ldots
+\item I can use more than one \BibTeX\ file (*.bib).
+\item Only the entries from my \BibTeX\ files that are \emph{actually cited} are listed in the bibliography.
+\item After changing citations and/or references, I (may) have to run \LaTeX, \BibTeX, \LaTeX\ and \LaTeX\
+  again to get everything right.
+\end{itemize}
+
+You can usually find a the code for a \BibTeX\ entry on sites where you can find papers.  Google
+Scholar\footnote{After finding a publication in Google Scholar, click on the blue double quotes below the
+  entry and click BibTeX at the bottom of the popup.}  (general) and ADS (physics) are useful places to go.
+You can copy the code for the \BibTeX\ entry and paste it into your \BibTeX\ file (*.bib).  See
+\cite{BibTeXentries} for a longer list of sites.
+
+
 \begin{appendices}  %  iso \appendix
   \section{First appendix}
   \label{app:firstApp}
@@ -118,5 +150,7 @@ Which scenario do you advice? Why?  How close does it get to the 2030 goals?
   
 \end{appendices}
 
+
+\bibliography{myReferences,otherReferences}
 
 \end{document}
